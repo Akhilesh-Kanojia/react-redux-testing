@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+.historyItem{
+  list-style: none;
+  border: 1px solid #282c34;
+  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #eee;
+}
