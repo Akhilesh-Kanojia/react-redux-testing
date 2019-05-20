@@ -1,0 +1,38 @@
+import React from 'react';
+import './App.css';
+import { connect } from 'react-redux';
+
+class App extends React.Component {
+
+render (){
+  return (
+    <div className="App">
+     <div className="col">
+     <div>A: <span>{this.props.a}</span></div>
+     <button onClick={() => this.props.updateA(this.props.b)}>Update A</button>
+     </div>
+     <div className="col">
+     <div>B: <span>{this.props.b}</span></div>
+     <button onClick={() => this.props.updateB(this.props.a)}>Update B</button>
+     </div>
+    </div>
+  );
+}
+ 
+}
+
+const mapStoreToProps = (store) => {
+  return {
+    a: store.rA.a,
+    b: store.rB.b
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+return {
+  updateA: (b) => dispatch({type: 'Update_A', b: b}),
+  updateB: (a) => dispatch({type: 'Update_B', a: a})
+}
+};
+
+export default connect(mapStoreToProps, mapDispatchToProps)(App);
